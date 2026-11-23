@@ -1,5 +1,4 @@
 
-
 """
 Cliente de dados de surf — Open-Meteo Marine API
 Busca condições de ondas, vento e temperatura da água para os principais spots de surf do Brasil.
@@ -69,7 +68,7 @@ def init_db():
             """)
             cur.execute("""
                 CREATE TABLE IF NOT EXISTS tide_data (
-                    id SERIAL PRIMARY KEY,
+                    id SERIAL PRIMARY PRIMARY KEY,
                     spot_id TEXT NOT NULL,
                     ts TIMESTAMPTZ NOT NULL,
                     tide_height DOUBLE PRECISION,
@@ -78,7 +77,7 @@ def init_db():
             """)
             cur.execute("""
                 CREATE TABLE IF NOT EXISTS visits (
-                    id SERIAL PRIMARY KEY,
+                    id SERIAL PRIMARY PRIMARY KEY,
                     path TEXT,
                     visited_at TIMESTAMPTZ DEFAULT NOW()
                 );
