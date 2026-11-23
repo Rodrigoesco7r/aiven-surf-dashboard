@@ -50,7 +50,7 @@ def init_db():
         with conn.cursor() as cur:
             cur.execute("""
                 CREATE TABLE IF NOT EXISTS surf_spots (
-                    spot_id TEXT PRIMARY PRIMARY KEY,
+                    spot_id TEXT PRIMARY KEY,
                     name TEXT NOT NULL,
                     state TEXT NOT NULL,
                     city TEXT NOT NULL,
@@ -68,7 +68,7 @@ def init_db():
             """)
             cur.execute("""
                 CREATE TABLE IF NOT EXISTS tide_data (
-                    id SERIAL PRIMARY PRIMARY KEY,
+                    id SERIAL PRIMARY KEY,
                     spot_id TEXT NOT NULL,
                     ts TIMESTAMPTZ NOT NULL,
                     tide_height DOUBLE PRECISION,
@@ -77,7 +77,7 @@ def init_db():
             """)
             cur.execute("""
                 CREATE TABLE IF NOT EXISTS visits (
-                    id SERIAL PRIMARY PRIMARY KEY,
+                    id SERIAL PRIMARY KEY,
                     path TEXT,
                     visited_at TIMESTAMPTZ DEFAULT NOW()
                 );
